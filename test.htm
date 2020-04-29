@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+        
+    <title>Sisältösivu</title>    
+  
+  <script>
+    function logout(){
+ 
+     var xmlhttp = new XMLHttpRequest();
+             var url = "http://127.0.0.1:3002/logout";
+             xmlhttp.onload = function () {
+                 if (xmlhttp.readyState == 4 && xmlhttp.status == "200") {
+                     //document.getElementById("demo").innerHTML = this.responseText;
+                     //alert("Täällä");
+                 }
+             }
+             //xmlhttp.open("GET", url, true);
+             xmlhttp.open("GET", url, false);
+             xmlhttp.send();
+ 
+    }
+ 
+    function loadPage(){
+ 
+     var xmlhttp = new XMLHttpRequest();
+             var url = "http://127.0.0.1:3002/getuser";
+             xmlhttp.onload = function () {
+                 if (xmlhttp.readyState == 4 && xmlhttp.status == "200") {
+                   //TODO tästä pitäs parsia jotenkin... varmaan joku JSON olis kannattanu...
+                     //document.getElementById("demo").innerHTML = this.responseText.userData.userName;
+                     document.getElementById("demo").innerHTML = this.responseText;
+                     //document.getElementById("demo").innerHTML = this.responseText["userData"];
+                     //document.getElementById("demo").innerHTML =this.response.getElementById("userName");
+                     //alert("Täällä");
+                 }
+             }
+             xmlhttp.open("GET", url, true);
+             xmlhttp.send();
+ 
+     }
+ 
+ 
+     </script>
+ 
+  </head>
+  <body>
+    <h1>Tervetuloa sivustolle</h1>
+    <form id ="formLogout">
+      <h1>Sisältö ja logout</h1>
+      <p> Olet kirjautunut sisään</p>
+      <p><b><span id="demo"></span></b></p>
+      <p> Tässä on kaikenlaista sisältöä...</p>
+      <input type ="submit" value ="Kirjaudu ulos" id = "btnLogout" onclick="logout();"></input>
+    </form>
+    
+    <script>
+      //alert("ladataan");
+      loadPage();
+    </script>    
+
+  </body>
+</html>

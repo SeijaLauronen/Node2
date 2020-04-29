@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Tässä joku sessiovideo-->
+<!-- https://www.youtube.com/watch?v=zsOGmMuwhT4 -->
+<!-- Räällä eri tapoja:-->
+<!-- https://stackoverflow.com/questions/247483/http-get-request-in-javascript -->
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    
+    <title>LOGIN</title>
+    <style>
+    </style>
+  
+  <script>
+   function login(){
+
+    var nimiParam=document.getElementById("nimi").value;
+    //alert( nimiParam);
+
+    var xmlhttp = new XMLHttpRequest();
+            var url = "http://127.0.0.1:3002/login?nimi=" +nimiParam;
+            xmlhttp.onload = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == "200") {
+                    //document.getElementById("demo").innerHTML = this.responseText;
+                    //alert("Täällä");
+                }
+            }
+            //xmlhttp.open("GET", url, true);
+            xmlhttp.open("GET", url, false);
+            xmlhttp.send();
+
+   }
+
+   function loadPage(){
+
+    var xmlhttp = new XMLHttpRequest();
+    
+            var url = "http://127.0.0.1:3002";
+            xmlhttp.onload = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == "200") {
+                    //document.getElementById("demo").innerHTML = this.responseText;
+                    //alert("Täällä");
+                }
+            }
+            //xmlhttp.open("GET", url, true);
+            xmlhttp.open("GET", url, false);
+            xmlhttp.send();
+
+    }
+
+
+    </script>
+
+  </head>
+  <body>
+    <form id ="formLogin">
+    <h1>LOGIN SIVU</h1>
+    <label>Nimi:</label>
+    <input type ="text" name ="nimi" id="nimi">
+    <input type ="submit" value ="Kirjaudu" id = "btnLogin" onclick="login();"></input>
+    </form>
+
+    <script>
+      //alert("ladataan");
+      loadPage();
+    </script>
+  </body>
+</html>

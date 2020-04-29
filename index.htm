@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">    
+    
+    <title>Alkusivu</title>
+    
+  
+  <script>
+    
+    function loadPage(){
+ 
+     var xmlhttp = new XMLHttpRequest();
+             var url = "http://127.0.0.1:3002";
+             xmlhttp.onload = function () {
+                 if (xmlhttp.readyState == 4 && xmlhttp.status == "200") {
+                     //document.getElementById("demo").innerHTML = this.responseText;
+                     //alert("Täällä");
+                 }
+             }
+             xmlhttp.open("GET", url, true);
+             xmlhttp.send();
+ 
+     }
+ 
+     </script>
+ 
+  </head>
+  <body>
+    <p>Tämä on ohjesivu. </p>
+    <p>Käynnistä server.js komentoikkunasta esim. komennolla nodemon ./server.js   tai npm run start </p>
+    <p>Kirjoita sitten selaimen osoiteriville: 127.0.0.1:3002</p>
+        
+    <script>
+      //alert("ladataan");
+      //loadPage();
+    </script>
+
+
+  </body>
+</html>
